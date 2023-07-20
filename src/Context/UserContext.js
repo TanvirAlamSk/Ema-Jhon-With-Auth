@@ -11,6 +11,7 @@ const UserContext = ({ children }) => {
 
 
     const signupEmailAndPassword = (name, email, password) => {
+        setLoader(true)
         createUserWithEmailAndPassword(auth, email, password).then((userCradential) => {
             updateProfile(auth.currentUser, {
                 displayName: name
@@ -32,6 +33,7 @@ const UserContext = ({ children }) => {
 
     //
     const loginEmailandPassword = (email, password) => {
+        setLoader(true)
         signInWithEmailAndPassword(auth, email, password).then((userCradential) => {
             alert("Login Successful");
         }).catch((error) => {
@@ -42,6 +44,7 @@ const UserContext = ({ children }) => {
     //
 
     const logout = () => {
+        setLoader(true)
         signOut(auth).then(() => {
             alert("Logout Successful")
         }).catch((error) => {

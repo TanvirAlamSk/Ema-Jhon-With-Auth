@@ -1,12 +1,14 @@
 import React, { useContext } from 'react';
 import "./Login.css"
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Navbar from '../Navbar/Navbar';
 import { AuthContext } from '../../Context/UserContext';
 
 const Login = () => {
     const { user, loginEmailandPassword, googleSignup } = useContext(AuthContext);
     const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
 
     const handelLogin = (event) => {
         event.preventDefault();
@@ -14,7 +16,7 @@ const Login = () => {
         const password = event.target.password.value;
         loginEmailandPassword(email, password);
         event.target.reset();
-        navigate("/")
+        navigate(from, { replace: true })
 
 
     }
