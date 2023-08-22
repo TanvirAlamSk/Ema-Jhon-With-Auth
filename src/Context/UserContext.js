@@ -5,7 +5,7 @@ import app from '../Firebase/Fitrbase.config';
 export const AuthContext = createContext()
 const auth = getAuth(app);
 const UserContext = ({ children }) => {
-    const [user, setUser] = useState({})
+    const [user, setUser] = useState(null)
     const [loader, setLoader] = useState(true)
     const googleProvider = new GoogleAuthProvider()
 
