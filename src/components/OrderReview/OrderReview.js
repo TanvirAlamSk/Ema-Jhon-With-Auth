@@ -16,7 +16,7 @@ const OrderReview = () => {
             orderCart = JSON.parse(remainItems)
         }
         for (let element in orderCart) {
-            const exisit = products.find(product => product.id == element)
+            const exisit = products.find(product => product._id == element)
             if (exisit) {
                 exisit.quantity = orderCart[element]
                 orderItem.push(exisit)
@@ -52,7 +52,7 @@ const OrderReview = () => {
             <div className='products flex mx-16'>
                 <div className='w-3/4 h-full grid grid-cols-1 gap-4 mt-28'>
                     {items.map(orderData => <OrderReviewItem
-                        key={orderData.id}
+                        key={orderData._id}
                         orderData={orderData}
                         handleDeleteItem={handleDeleteItem}
                     ></OrderReviewItem>)}

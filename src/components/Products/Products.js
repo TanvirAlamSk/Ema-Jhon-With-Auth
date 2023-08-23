@@ -7,7 +7,7 @@ const Products = () => {
     const [products, setProduct] = useState([])
     const [cartItem, setCartItem] = useState([]);
     useEffect(() => {
-        fetch('products.json').then(response => response.json())
+        fetch('http://localhost:5000/products').then(response => response.json())
             .then(data => setProduct(data))
     }, [])
 
@@ -15,13 +15,13 @@ const Products = () => {
     const handelCart = (product) => {
 
         let cart = []
-        const selectItem = cartItem.find(item => item.id == product.id)
+        const selectItem = cartItem.find(item => item.id == product._id)
         if (!selectItem) {
             product.quantity = 1
             cart = [...cartItem, product]
             // setCartItem(cart)
         } else {
-            const rest = cartItem.filter(item => item.id != product.id)
+            const rest = cartItem.filter(item => item.id != product._id)
             product.quantity = product.quantity + 1
             cart = [...rest, selectItem]
 
@@ -35,11 +35,11 @@ const Products = () => {
         if (remain) {
             shoppingCart = JSON.parse(remain)
         }
-        const addProduct = shoppingCart[product.id]
+        const addProduct = shoppingCart[product._id]
         if (addProduct) {
-            shoppingCart[product.id] = JSON.parse(addProduct) + 1
+            shoppingCart[product._id] = JSON.parse(addProduct) + 1
         } else {
-            shoppingCart[product.id] = 1
+            shoppingCart[product._id] = 1
         }
         localStorage.setItem('shopping-cart', JSON.stringify(shoppingCart))
 
@@ -54,7 +54,7 @@ const Products = () => {
             getShoppingCart = JSON.parse(checkRemain)
         }
         for (const id in getShoppingCart) {
-            const items = products.find(product => product.id == id)
+            const items = products.find(product => product._id == id)
             if (items) {
                 items.quantity = parseInt(getShoppingCart[id])
                 remainItem.push(items)

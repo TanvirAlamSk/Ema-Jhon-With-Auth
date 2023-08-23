@@ -2,7 +2,7 @@ import React from 'react';
 import { TrashIcon } from '@heroicons/react/24/solid'
 
 const OrderReviewItem = ({ orderData, handleDeleteItem }) => {
-    const { id, name, price, img, shipping, quantity } = orderData
+    const { _id, name, price, img, shipping, quantity } = orderData
     return (
         <div>
             <div className="flex justify-between items-center mr-40 px-4 bg-base-100 shadow-xl rounded-md">
@@ -19,7 +19,7 @@ const OrderReviewItem = ({ orderData, handleDeleteItem }) => {
                 </div>
                 <div className="">
                     <button className="btn btn-warning"
-                        onClick={() => handleDeleteItem(id)}>
+                        onClick={() => handleDeleteItem(_id)}>
                         <TrashIcon className="h-6 w-6 text-red-500" /></button>
                 </div>
             </div>

@@ -13,7 +13,7 @@ export const route = createBrowserRouter([
             { path: "/", element: <Products></Products> },
             {
                 path: "/review-order",
-                loader: () => fetch('products.json'),
+                loader: () => fetch('http://localhost:5000/products'),
                 element: <PrivateRoute><ReviewOrder></ReviewOrder></PrivateRoute>
             },
             {
