@@ -10,7 +10,9 @@ import Inventory from "../components/Inventory/Inventory";
 export const route = createBrowserRouter([
     {
         path: "/", element: <Main></Main>, children: [
-            { path: "/", element: <Products></Products> },
+            {
+                path: "/", element: <Products></Products>
+            },
             {
                 path: "/review-order",
                 loader: () => fetch('http://localhost:5000/products'),

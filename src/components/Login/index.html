@@ -1,45 +1,49 @@
 <html>
+
 <head>
-<title>Form Page</title>
-<link rel="stylesheet" href="style.css">
+    <title>Form Page</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-<div class="main-container">
-            <div class="form-container">
-                <div class="form-body">
-                    <h2 class="title">Log in</h2>
+    <div className="main-container">
+        <div className="form-container">
+            <div className="form-body">
+                <h2 className="title">Log in</h2>
 
-                    <form action="" class="the-form">
+                <form action="" className="the-form">
 
-                        <label htmlFor="email">Email</label>
-                        <input type="email" name="email" id="email" placeholder="Enter your email" />
+                    <label htmlFor="email">Email</label>
+                    <input type="email" name="email" id="email" placeholder="Enter your email" />
 
-                        <label htmlFor="password">Password</label>
-                        <input type="password" name="password" id="password" placeholder="Enter your password" />
+                    <label htmlFor="password">Password</label>
+                    <input type="password" name="password" id="password" placeholder="Enter your password" />
 
-                        <input type="submit" value="Log In" />
+                    <input type="submit" value="Log In" />
 
-                    </form>
-                    <div class="_or">or</div>
-                    <div class="social-login">
-                        <ul>
-                            <li class="google">
-                                <button class='google-link'>Google</button>
-                            </li>
-                            <li class="fb">
-                                <button class='facebook-link'>Facebook</button>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="form-footer">
-                        <div>
-                            <span>Don't have an account?</span> <Link class='toggle-link' to="/signup">Sign Up</Link>
-                        </div>
-                    </div>
-
+                </form>
+                <div className="_or">or</div>
+                <div className="social-login">
+                    <ul>
+                        <li className="google">
+                            <button className='google-link'>Google</button>
+                        </li>
+                        <li className="fb">
+                            <button className='facebook-link'>Facebook</button>
+                        </li>
+                    </ul>
                 </div>
+
+                <div className="form-footer">
+                    <div>
+                        <span>Don't have an account?</span>
+                        <Link className='toggle-link' to="/signup">Sign Up</Link>
+                    </div>
+                </div>
+
             </div>
         </div>
+    </div>
 </body>
+
 </html>
